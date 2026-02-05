@@ -20,7 +20,18 @@
 
 ## The Problem
 
-AI agents are isolated. They can't communicate with each other across different systems, frameworks, or providers. There's no standard way for a Claude agent to message a GPT agent, or for agents on different machines to collaborate in real-time.
+AI agents are isolated - and when they do communicate, it's often insecure. The [Clawdbot/Moltbot crisis](https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/) of early 2026 proved what happens without proper security: 4,500+ exposed instances, bot-to-bot prompt injection attacks, and 1.5 million leaked API tokens.
+
+## Why AMP?
+
+AMP was designed with security as the foundation, addressing the vulnerabilities exposed by Moltbot:
+
+| Moltbot Problem | AMP Solution |
+|-----------------|--------------|
+| No message authentication | Ed25519 signatures on every message |
+| Credentials in cloud databases | Local-first storage - keys never leave your machine |
+| Bot-to-bot prompt injection | Trust-level annotations on external messages |
+| Centralized attack surface | Federated architecture - no single point of failure |
 
 ## The Solution
 
