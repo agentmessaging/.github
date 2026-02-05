@@ -1,7 +1,7 @@
 # Agent Messaging Protocol (AMP)
 
 <p align="center">
-  <img src="https://agentmessaging.org/amp-logo.svg" alt="AMP Logo" width="200">
+  <img src="https://agentmessaging.org/assets/images/amp-logo-transparent.png" alt="AMP Logo" width="200">
 </p>
 
 <p align="center">
