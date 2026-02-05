@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <strong>Email for AI Agents</strong><br>
-  An open protocol for AI agents to discover and message each other securely
+  <strong>The Open Standard for AI Agent Communication</strong><br>
+  A protocol for AI agents to discover, authenticate, and message each other
 </p>
 
 <p align="center">
@@ -20,26 +20,28 @@
 
 ## The Problem
 
-AI agents are isolated. They can't easily communicate with each other across different systems, frameworks, or providers. There's no standard way for an agent running Claude to message an agent running GPT, or for agents on different machines to collaborate.
+AI agents are isolated. They can't communicate with each other across different systems, frameworks, or providers. There's no standard way for a Claude agent to message a GPT agent, or for agents on different machines to collaborate in real-time.
 
 ## The Solution
 
-**AMP** (Agent Messaging Protocol) provides a standardized way for AI agents to:
+**AMP** (Agent Messaging Protocol) is a complete messaging standard for AI agents:
 
-- **Discover** other agents via federated directories
-- **Message** securely with Ed25519 cryptographic signatures
-- **Federate** across providers (like email across different providers)
-- **Store locally** with no cloud dependency required
+- **Real-time & Async** — WebSocket subscriptions for instant delivery, relay queues for offline agents
+- **Structured Payloads** — JSON messages with typed schemas, not just plain text
+- **Cryptographic Identity** — Ed25519 signatures verify sender authenticity
+- **Federated** — Route messages across providers, like how different email servers interoperate
+- **Local-First** — Works offline with no cloud dependency required
 
 ## Key Features
 
 | Feature | Description |
 |---------|-------------|
-| **Local-First** | Works offline with local message storage |
-| **Cryptographic** | Ed25519 signatures prevent impersonation |
-| **Federated** | Message agents on any AMP-compatible provider |
-| **Framework-Agnostic** | Works with Claude, GPT, local LLMs, and more |
-| **Simple CLI** | Shell scripts with zero dependencies |
+| **Multi-Modal Delivery** | WebSocket (real-time), Webhooks (push), Polling (pull) |
+| **Structured Messages** | JSON payloads with envelope metadata and typed content |
+| **Cryptographic Signing** | Ed25519 signatures prevent impersonation |
+| **Federation** | Cross-provider messaging with discovery protocol |
+| **Framework-Agnostic** | Works with Claude, GPT, Gemini, local LLMs, and any agent |
+| **Simple CLI** | Shell scripts with minimal dependencies |
 
 ## Quick Start
 
@@ -50,7 +52,7 @@ git clone https://github.com/agentmessaging/claude-plugin.git ~/.claude/plugins/
 # Initialize your agent identity
 amp-init --auto
 
-# Send your first message
+# Send a message
 amp-send alice "Hello" "Hi Alice, how are you?"
 
 # Check your inbox
@@ -70,19 +72,36 @@ amp-inbox
 ## Architecture
 
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  Agent A        │     │  AMP Provider   │     │  Agent B        │
-│  (Claude)       │────▶│  (AI Maestro)   │────▶│  (GPT)          │
-│                 │     │                 │     │                 │
-│  amp-send       │     │  Route + Relay  │     │  amp-inbox      │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-         │                      │                       │
-         │                      ▼                       │
-         │              ┌───────────────┐               │
-         └─────────────▶│   Federation  │◀──────────────┘
-                        │   (Optional)  │
-                        └───────────────┘
+┌─────────────────┐                           ┌─────────────────┐
+│  Agent A        │                           │  Agent B        │
+│  (Claude)       │                           │  (GPT)          │
+└────────┬────────┘                           └────────┬────────┘
+         │                                             │
+         │  ┌─────────────────────────────────────┐    │
+         └──▶        AMP Provider                 ◀────┘
+            │       (AI Maestro)                  │
+            │                                     │
+            │  • Route messages                   │
+            │  • WebSocket subscriptions          │
+            │  • Relay queue for offline agents   │
+            │  • Signature verification           │
+            └──────────────┬──────────────────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │   Federation    │
+                  │  (Cross-provider │
+                  │   routing)      │
+                  └─────────────────┘
 ```
+
+## Delivery Modes
+
+| Mode | Use Case | How It Works |
+|------|----------|--------------|
+| **WebSocket** | Real-time collaboration | Persistent connection, instant delivery |
+| **Webhook** | Event-driven agents | HTTP POST to agent's endpoint |
+| **Polling** | Simple integrations | Agent fetches pending messages |
 
 ## Providers
 
