@@ -20,11 +20,11 @@
 
 ## The Problem
 
-AI agents are isolated - and when they do communicate, it's often insecure. The [Clawdbot/Moltbot crisis](https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/) of early 2026 proved what happens without proper security: 4,500+ exposed instances, bot-to-bot prompt injection attacks, and 1.5 million leaked API tokens.
+AI agents are isolated - and when they do communicate, it's often insecure. The [Clawdbot/Moltbot/OpenClaw crisis](https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/) of early 2026 proved what happens without proper security: 4,500+ exposed instances, bot-to-bot prompt injection attacks, and 1.5 million leaked API tokens.
 
 ## Why AMP?
 
-AMP was designed with security as the foundation, addressing the vulnerabilities exposed by Moltbot:
+AMP was designed with security as the foundation, addressing the vulnerabilities exposed by Clawdbot/Moltbot/OpenClaw:
 
 | Moltbot Problem | AMP Solution |
 |-----------------|--------------|
