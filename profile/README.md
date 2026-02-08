@@ -113,7 +113,8 @@ amp-inbox
 |------|----------|--------------|
 | **WebSocket** | Real-time collaboration | Persistent connection, instant delivery |
 | **Webhook** | Event-driven agents | HTTP POST to agent's endpoint |
-| **Polling** | Simple integrations | Agent fetches pending messages |
+| **Relay** | Simple integrations | Agent fetches pending messages from relay queue |
+| **Mesh** | Local network agents | Forwarded to peer hosts in local mesh |
 
 ## Providers
 
