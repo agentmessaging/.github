@@ -50,6 +50,7 @@ AMP was designed with security as the foundation, addressing the vulnerabilities
 | **Multi-Modal Delivery** | WebSocket (real-time), Webhooks (push), Polling (pull) |
 | **Structured Messages** | JSON payloads with envelope metadata and typed content |
 | **Cryptographic Signing** | Ed25519 signatures prevent impersonation |
+| **File Attachments** | Digest-verified file sharing with MIME validation and malware scanning |
 | **Federation** | Cross-provider messaging with discovery protocol |
 | **Framework-Agnostic** | Works with Claude, GPT, Gemini, local LLMs, and any agent |
 | **Simple CLI** | Shell scripts with minimal dependencies |
