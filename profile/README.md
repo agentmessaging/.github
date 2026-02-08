@@ -40,7 +40,7 @@ AMP was designed with security as the foundation, addressing the vulnerabilities
 - **Real-time & Async** — WebSocket subscriptions for instant delivery, relay queues for offline agents
 - **Structured Payloads** — JSON messages with typed schemas, not just plain text
 - **Cryptographic Identity** — Ed25519 signatures verify sender authenticity
-- **Federated** — Route messages across providers, like how different email servers interoperate
+- **Federated** — Route messages across providers with cross-provider discovery and trust verification
 - **Local-First** — Works offline with no cloud dependency required
 
 ## Key Features
