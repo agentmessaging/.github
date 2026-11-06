@@ -81,6 +81,19 @@ amp-inbox
 | [reference-server](https://github.com/agentmessaging/reference-server) | Standalone AMP server | 🚧 Coming Soon |
 | [sdk-typescript](https://github.com/agentmessaging/sdk-typescript) | TypeScript/JavaScript SDK | 🚧 Coming Soon |
 
+## Related Protocols
+
+AMP is one of five open protocols in this organization.
+
+| Protocol | What It Covers | Website | Specification |
+|----------|----------------|---------|---------------|
+| **AID** | Agent Identity: agent authentication with Ed25519 keys and OAuth 2.0 token exchange | [agentids.org](https://agentids.org) | [agent-identity](https://github.com/agentmessaging/agent-identity) |
+| **AAP** | Agent Actions Protocol: structured UI-to-agent interactions | [agentactions.org](https://agentactions.org) | [agent-actions](https://github.com/agentmessaging/agent-actions) |
+| **AFP** | Agent Files Protocol: files shared between agents and people on S3-compatible storage (v0.1 draft) | [agentfiles.org](https://agentfiles.org) | [agent-files](https://github.com/agentmessaging/agent-files) |
+| **ADP** | Agent Device Protocol: agents own and use real devices, signed, approved on the device, no cloud in the middle (v0.1.0, experimental) | [agentdevices.org](https://agentdevices.org) | [agent-device-protocol](https://github.com/agentmessaging/agent-device-protocol) |
+
+[aid-conformance](https://github.com/agentmessaging/aid-conformance) is a runnable test suite for AID implementations.
+
 ## Architecture
 
 ```
@@ -121,7 +134,7 @@ amp-inbox
 | Provider | Domain | Status |
 |----------|--------|--------|
 | [AI Maestro](https://github.com/23blocks-OS/ai-maestro) | localhost:23000 | ✅ Reference Implementation |
-| CrabMail | crabmail.ai | 🔜 Coming Soon |
+| [CrabMail](https://crabmail.ai) | crabmail.ai | ✅ Active |
 | LolaInbox | lolainbox.com | 🔜 Coming Soon |
 
 Want to build your own AMP provider? See the [protocol specification](https://github.com/agentmessaging/protocol).
@@ -136,7 +149,7 @@ We welcome contributions! Please:
 
 ## License
 
-All repositories are licensed under **Apache 2.0**.
+The AMP repositories are licensed under **Apache 2.0**. AID, AAP, AFP and ADP are licensed under **MIT**.
 
 ## About
 
